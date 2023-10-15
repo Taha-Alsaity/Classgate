@@ -1,0 +1,642 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kalam&family=Sansita&family=Ysabeau+Office:wght@300&display=swap');
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+   
+   
+    font-family: 'Sansita', sans-serif;
+    
+  
+    
+
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  height: 100px;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-to: 12px;
+  padding-botto: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.customCheckBoxHolder {
+    margin: 5px;
+    display: flex;
+  }
+  
+  .customCheckBox1 {
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    padding: 2px 8px;
+    background-color: rgba(0, 0, 0, 0.16);
+    border-radius: 0px;
+    color: rgba(255, 255, 255, 0.7);
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 300ms;
+    transition-property: color, background-color, box-shadow;
+    display: flex;
+    height: 32px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px 1px 1px 0px;
+    outline: none;
+    justify-content: center;
+    min-width: 55px;
+  }
+  
+  .customCheckBox1:hover {
+    background-color: #2c2c2c;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+  }
+  
+  .customCheckBox1 .inner {
+    font-size: 18px;
+    font-weight: 900;
+    pointer-events: none;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 300ms;
+    transition-property: transform;
+    transform: translateY(0px);
+  }
+  
+  .customCheckBox1:hover .inner {
+    transform: translateY(-2px);
+  }
+
+
+
+
+  .customCheckBox2 {
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    padding: 2px 8px;
+    background-color: rgba(0, 0, 0, 0.16);
+    border-radius: 0px;
+    color: rgba(255, 255, 255, 0.7);
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 300ms;
+    transition-property: color, background-color, box-shadow;
+    display: flex;
+    height: 32px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px 1px 1px 0px;
+    outline: none;
+    justify-content: center;
+    min-width: 55px;
+  }
+  
+  .customCheckBox2:hover {
+    background-color: #2c2c2c;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+  }
+  
+  .customCheckBox2 .inner {
+    font-size: 18px;
+    font-weight: 900;
+    pointer-events: none;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 300ms;
+    transition-property: transform;
+    transform: translateY(0px);
+  }
+  
+  .customCheckBox2:hover .inner {
+    transform: translateY(-2px);
+  }
+
+
+
+
+  
+  /* Multiple Checkboxes can be chained together for a radio input */
+  .customCheckBoxWrapper:first-of-type .customCheckBox1 {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-right: 0px;
+  }
+  
+  .customCheckBoxWrapper:last-of-type .customCheckBox1 {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-left: 0px;
+  }
+
+
+  .customCheckBoxWrapper:first-of-type .customCheckBox2 {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-right: 0px;
+  }
+  
+  .customCheckBoxWrapper:last-of-type .customCheckBox2 {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-left: 0px;
+  }
+  
+  .customCheckBoxInput {
+    display: none;
+  }
+  
+  .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox1 {
+    background-color: #2d6737;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+  }
+ 
+  .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox2 {
+    background-color: #9e2c2c;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+  }
+  .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox .inner {
+    transform: translateY(-2px);
+  }
+  
+  .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox1:hover {
+    background-color: #34723f;
+    box-shadow: rgba(0, 0, 0, 0.26) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.15) 0px 3px 6px 2px;
+  }
+
+  .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox2:hover {
+    background-color: #9e2c2c;
+    box-shadow: rgba(0, 0, 0, 0.26) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.15) 0px 3px 6px 2px;
+  }
+  
+  .customCheckBoxWrapper .customCheckBox1:hover .inner {
+    transform: translateY(-2px);
+  }
+
+  .customCheckBoxWrapper .customCheckBox2:hover .inner {
+    transform: translateY(-2px);
+  }
+  
+section{
+    justify-content: center;
+    text-align: center;
+    
+}
+.up{
+    
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.down h1{
+    position: absolute;
+    top: 25%;
+    text-align: left;
+    margin-left: 20px;
+    font-size: 2em;
+    color: rgb(141, 140, 140);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 30px;
+   
+    
+}
+.down{
+    margin-top: 40px;
+    background-color: rgb(30, 145, 88);
+    display: block;
+    padding-top: 30px;
+    
+}
+.clist{
+display: flex;
+justify-content: space-around;
+}
+.vid-1 video{
+    display: block;
+}
+.vid-2 video{
+    display: block;
+}
+.c-all nav{
+    background-color: rgb(252, 252, 250);
+    
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px;
+    height: 300px;
+    
+    
+}
+
+.vid-1 label{
+    color: rgb(34, 34, 34);
+    font-size: 1.1em;
+    display: block;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+.vid-1 video{
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.vid-2 label{
+    color: rgb(20, 20, 20);
+    font-size: 1.1em;
+    display: block;
+    margin-left: 5px;
+}
+.vid-2 video{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    
+}
+.clist{
+    display: flex;
+    justify-content: space-around;
+    margin-to: 100px;
+    min-height: 62vh;
+}
+.vid-1 a{
+    text-decoration: none;
+    color: rgb(121, 119, 116);
+    font-weight: 500;
+    
+    display: flex;
+    width: 110px;
+    
+    
+}
+.vid-1 a span{
+    color: rgb(189, 18, 18);
+    
+}
+.vid-1 a:hover> .pp{
+    font-size: 0px;
+    transition: 0.08s linear;
+    width: 0px;
+
+}
+.vid-1 a:hover> i{
+    font-size: 2em;
+    transition: 0.05s linear;
+
+}
+.vid-2 a{
+    text-decoration: none;
+    color: rgb(121, 119, 116);
+    font-weight: 500;
+    
+    display: flex;
+    width: 110px;
+}
+.vid-2 i{
+    margin-top: 4px;
+    margin-right: 3px;
+}
+.vid-1 i{
+    margin-top: 4px;
+    margin-right: 3px;
+}
+.vid-2 a span{
+    color: rgb(189, 18, 18);
+}
+.vid-2 a:hover> .pp{
+    font-size: 0px;
+    transition: 0.1s linear;
+    width: 0px;
+
+}
+.vid-2 a:hover> i{
+    font-size: 2em;
+    transition: 0.1s linear;
+   
+}.vid-1 video{
+    display: block;
+}
+.vid-2 video{
+    display: block;
+    
+}
+.clist nav{
+    background-color: rgb(252, 252, 250);
+    
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px;
+    height: 350px;
+    
+    
+}
+
+
+.button {
+    height: 40px;
+    width: 130px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    margin-top:0px;
+    box-shadow: 0PX 2PX 5PX rgb(105, 105, 105);
+  }
+  
+  .button:hover {
+    box-shadow: .5px .5px 150px #252525;
+  }
+  
+  .type1::after {
+    content: "Click";
+    height: 40px;
+    width: 130px;
+    background-color: #008080;
+    color: #fff;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateY(50px);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .type1::before {
+    content: "FINISH";
+    height: 40px;
+    width: 130px;
+    background-color: #c8efdd;
+    color: #008080;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateY(0px) scale(1.2);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .type1:hover::after {
+    transform: translateY(0) scale(1.2);
+  }
+  
+  .type1:hover::before {
+    transform: translateY(-50px) scale(0) rotate(120deg);
+  }
+
+
+  .T {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    color: rgb(24, 24, 24);
+    font-family: 'Righteous', serif;
+    font-size: 2em; 
+    border-bottom: 4px solid White ;
+    text-shadow: .03em .03em 0 rgb(250, 250, 250);
+    }
+    .T:after {
+      content: attr(data-shadow);
+      position: absolute;
+      top: .06em; left: .06em;
+      z-index: -1;
+      text-shadow: none;
+      background-image:
+        linear-gradient(
+          45deg,
+          transparent 45%,
+          hsla(48,20%,90%,1) 45%,
+          hsla(48,20%,90%,1) 55%,
+          transparent 0
+          );
+      background-size: .05em .05em;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    
+      animation: shad-anim 15s linear infinite;
+      }
+  
+  @keyframes shad-anim {
+    0% {background-position: 0 0}
+    0% {background-position: 100% -100%}
+    } 
+
+  .content{
+    min-height: 100vh;
+    display: flex;
+    background-color: rgb(234, 232, 232);
+}
+.list{
+    background-color: azure;
+    min-height: 100vh;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.list a{
+
+ margin: 10px;
+ margin-left: 30px;
+ padding: 10px;
+ text-decoration: none;
+ color: black;
+ border-bottom: 2px solid silver;
+
+
+}
+
+.list a:hover{
+    background-color: rgb(202, 202, 202);
+}
+aside{ 
+    overflow-y: auto;
+    background-color: azure;
+    min-height: 100vh;
+    display: flex;
+    border-right: 2px solid silver;
+}
+.carddd {
+width: 20.5em;
+height: 14.3em;
+background: #90d4ba;
+transition: 1s ease-in-out;
+clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
+border-top-right-radius: 20px;
+border-bottom-left-radius: 20px;
+display: flex;
+border: 4px solid white;
+flex-direction: column;
+
+margin-left: 40px;
+
+margin-bottom: 20px;
+
+
+}
+
+.carddd span {
+font-weight: bold;
+color: white;
+text-align: center;
+padding-top: 5px;
+display: block;
+font-size: 1em;
+}
+
+.carddd .infooo {
+font-weight: 400;
+color: white;
+display: block;
+text-align: center;
+font-size: 0.72em;
+margin: 0em;
+}
+iframe{
+width: 320px;
+height: 140px;
+}
+.carddd .imggg {
+background: white;
+border-radius: 15px;
+height: 162px;
+
+}
+
+.carddd .share {
+margin-top: 0.2em;
+display: flex;
+justify-content: center;
+gap: 1em;
+}
+
+.carddd a {
+color: white;
+transition: .4s ease-in-out;
+
+}
+
+.carddd a:hover {
+color: red;
+}
+
+.carddd button {
+padding: 0.8em 1.7em;
+display: block;
+margin: auto;
+border-radius: 25px;
+border: none;
+font-weight: bold;
+background: #ffffff;
+color: rgb(0, 0, 0);
+transition: .4s ease-in-out;
+}
+
+.carddd button:hover {
+background: red;
+color: white;
+cursor: pointer;
+}
+.vid-1{
+
+border-radius: 0px 10px 39px 39px;
+}
+.vid-2{
+
+border-radius: 0px 10px 39px 39px;
+}
+.c-all{
+display: flex;
+width: 100%;
+background-color: #fdfdfda9;
+
+padding: 30px 0px;
+flex-wrap: wrap;
+}
+main{
+width: 100%;
+padding: 10px;
+}
+
+
+.add-but:hover{
+box-shadow: 0px 2px 4px black;
+}
+
+input[type=text],input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.exformdiv {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  
+}
+
+@media (max-width:1037px){
+  .carddd{
+    width: 20em;
+    height: 15.3;
+  }
+ 
+  iframe{
+    width: 320px;
+  }
+
+
+}

@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: rgb(243,240,240);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display:block;
+    padding: 30px 10px;
+    
+    
+}
+
+
+div{
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 600px;
+    background-color: rgb(0, 255, 200);
+    padding: 60px;
+    box-shadow: 0px 1px 5px;
+}
+form .t + .ta{
+    text-align: left;
+    justify-content: left;
+    display: block;
+    
+}
+.button {
+    height: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    margin-top: 30px;
+  }
+  
+  .button:hover {
+    box-shadow: .5px .5px 150px #252525;
+  }
+  
+  .type1::after {
+    content: "Click";
+    height: 30px;
+    width: 100px;
+    background-color: #008080;
+    color: #fff;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateY(50px);
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .type1::before {
+    content: "Save";
+    height: 30px;
+    width: 100px;
+    background-color: #fff;
+    color: #008080;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateY(0px) scale(1.2);
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .type1:hover::after {
+    transform: translateY(0) scale(1.2);
+  }
+  
+  .type1:hover::before {
+    transform: translateY(-50px) scale(0) rotate(120deg);
+  }
+.t{
+    margin: 20px;
+    background-color:  rgba(36, 167, 167, 0.384);
+    border: none;
+    border-bottom: 1px solid rgb(116, 115, 115) ;
+    width: 200px;
+    margin-left: 50px;
+    box-shadow: 0px 0px 2px ;
+}
+.t:focus{
+    outline: none;
+    border-bottom: 1px seashell solid;
+    transition: 0.4s linear;
+}
+nav{
+    display: flex;
+    align-items: center;
+}
+sub{
+    margin-top: 20px;
+
+}
+.ta{
+    margin: 20px;
+    margin-left: 6px;
+    background-color:  rgba(36, 167, 167, 0.384);
+    border: none;
+    border-bottom: 1px solid rgb(95, 95, 95) ;
+    width: 200px;
+    box-shadow: 0px 0px 2px ;
+}
+.ta:focus{
+    outline: none;
+    border-bottom: 1px seashell solid;
+    transition: 0.4s linear;
+}
+.sub{
+    justify-content:center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px rgb(8, 8, 75) solid;
+    color: rgb(9, 9, 80);
+    background-color: none;
+    font-size: 1.0em;
+    font-weight: 500;
+    
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 16px;
+    box-shadow: 2px 1px 5px   black;
+    margin-top: 20px;
+    
+}
+.sub:hover{
+    background-color: rgb(13, 13, 92);
+    color: antiquewhite;
+    transition: 0.5s linear;
+    font-style:italic;
+    
+    box-shadow: 2px 5px 5px   rgb(39, 39, 39);
+}
+label{
+    font-size: 1.2em;
+    font-style: normal;
+    font-weight: 500;
+    
+}
+.tb{
+    margin: 20px;
+    background-color: rgba(36, 167, 167, 0.384);
+    border: none;
+    border-bottom: 1px solid rgb(116, 115, 115) ;
+    width: 200px;
+    margin-left: 55px;
+    box-shadow: 0px 0px 2px ;
+}
+.tb:focus{
+    outline: none;
+    border-bottom: 1px seashell solid;
+    transition: 0.4s linear;
+}
+img{
+
+    filter: 
+    drop-shadow(0 0 1rem gray)
+    ;
+    border-bottom: 1.5px solid black;
+}
+
+@media(max-width:640px){
+
+div{
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 400px;
+    background-color: rgb(0, 255, 200);
+    padding: 10px;
+    height: 460px;
+    box-shadow: 0px 1px 5px;
+}
+.button{
+    margin-top: 180px;
+}
+}
+@media(max-width:420px){
+
+    div{
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        width: 300px;
+        background-color: rgb(0, 255, 200);
+        padding: 10px;
+        height: 460px;
+        box-shadow: 0px 1px 5px;
+    }
+    .button{
+        margin-top: 100px;
+    }
+    nav{
+        display: block;
+    }
+    }

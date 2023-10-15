@@ -1,0 +1,110 @@
+{% extends "index/student.html" %}
+{% block title %}Class-Gate | Add{% endblock %}{% block body %}
+<body style="border: 3px black; margin: 5px; " >
+    <div style="display: flex; flex-direction: column; margin: 10px; width: 100%;">
+
+ <h1 style="font-size: 1.3em; border-bottom: none ; color: rgb(27, 27, 28);" class="T" data-shadow='Classes'>this will appear as content to the student</h1> 
+
+{% if choice is None %}
+ <form style="display: flex; flex-direction: column; padding: 10px; background-color: #fdfdfda9;" action="{% url 'subadd'  %}" method="POST">
+   {% csrf_token %}
+    <label for="">What do you want to add?</label>
+    <select style="width: 50%; height: 60px; border-radius:7px; background-color: white;" name="choice" id="">
+        <option value="Exam">Exam</option>
+        <option value="video">video</option>
+    </select>
+    <input style="margin-top: 50px;" type="submit" value="Start Adding">        
+    
+</form> 
+</div>
+{% elif choice == 'Exam' %}
+
+
+<div class="exformdiv">
+    <form style="display: flex; flex-direction: column; margin: 5px; background-color: #fdfdfd60; padding: 10px;" action="{% url 'AddExam' %}" method="POST">
+        {% csrf_token %}
+      <label for="fname">Category</label>
+      <input type="text" id="fname" name="category" placeholder="Enter here..">
+  
+      <label for="lname">Name</label>
+      <input type="text" id="lname" name="name" placeholder="Name here...">
+        
+
+      <label for="country">Fullmark</label>
+      <input style="width: 100%; height: 50px;" min="5" type="number" step="0.1" id="fname" name="fullmark" placeholder="">
+       
+      <label for="country">Halfmark</label>
+      <input type="number" id="fname" name="half" placeholder="" step="0.1" min="0">
+     
+      <label for="country">Questions Number</label>
+      <input style="width: 100%; height: 50px;" min="0" type="number" step="1" id="fname" name="qnum" placeholder="">
+       
+    
+      <input style="margin-top: 30px;" type="submit" value="Add">
+    </form>
+  </div>
+{% elif choice == 'exform' %} 
+
+
+<div class="exformdiv">
+   
+   
+    <form style="display: flex; flex-direction: column; margin: 5px; background-color: #fdfdfd60; padding: 10px; " action="{% url 'Qform' %}" method="POST">
+       
+      
+       {% csrf_token %}
+       {% for num in stformid %}
+       <div>
+        <label for="fname_{{ num }}" name="{{ num }}">{{ stformid.name }}</label>
+        <input type="hidden" value="{{ ids.id }}" id="fname_{{ num }}" name="qfor">
+    
+        <label for="lname_{{ num }}">Question</label>
+        <input type="text" id="lname_{{ num }}" name="quiz-{{num}}" placeholder="Enter the question...">
+        
+        <label for="lname_{{ num }}">Answer (True or False only)</label>
+        <input type="text" id="lname_{{ num }}" name="answ-{{num}}" placeholder="Enter the answer...">
+        
+        <label for="country_{{ num }}">Quiz Mark</label>
+        <input style="width: 100%; height: 50px;" min="0" type="number" step="0.1" id="country_{{ num }}" name="mark-{{num}}" placeholder="">
+       
+        <label for="country_{{ num }}">Option 1 Number</label>
+        <input type="number" id="country_{{ num }}" name="opt1-{{num}}" placeholder="" step="1" min="0">
+     
+        <label for="country_{{ num }}">Option 2 Number</label>
+        <input style=" margin-bottom: 60px; width: 100%; height: 50px;" min="0" type="number" step="1" id="country_{{ num }}" name="opt2-{{num}}" placeholder="">
+</div>
+
+  {% endfor %}     
+        <input style="margin-top: 30px;" type="submit" value="Add">
+    </form>
+
+  </div>
+
+{% elif choice == 'video' %}
+
+<div class="exformdiv">
+  <form style="display: flex; flex-direction: column; margin: 5px; background-color: #fdfdfd60; padding: 10px;" action="{% url 'AddVideo' %}" method="POST">
+      {% csrf_token %}
+    <label for="fname">Keyword</label>
+    <input type="text" id="fname" name="keyword" placeholder="Enter here..">
+
+    <label for="lname">Title</label>
+    <input type="text" id="lname" name="title" placeholder="Name here...">
+      
+
+    <label for="country">Video</label>
+    <input  type="text"  id="fname" name="video" placeholder="">
+     
+    <label for="country">Link</label>
+    <input type="text" id="fname" name="link" placeholder="" >
+   
+  
+    <input style="margin-top: 30px;" type="submit" value="Add">
+  </form>
+</div>
+
+{% endif %}
+ 
+{%endblock%}
+</body>
+</html>
