@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    
+    
+    justify-content: center;
+
+    text-align: center;
+    
+}
+.logo{
+    text-align: center;
+    justify-content: center;
+}
+.logo-con{
+    
+    margin-top: 40px;
+    object-fit: contain;
+    
+}
+.button {
+    height: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    margin-top: 30px;
+  }
+  
+  .button:hover {
+    box-shadow: .5px .5px 150px #252525;
+  }
+  
+  .type1::after {
+    content: "Click";
+    height: 30px;
+    width: 100px;
+    background-color: #008080;
+    color: #fff;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateY(50px);
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .type1::before {
+    content: "GOO!";
+    height: 30px;
+    width: 100px;
+    background-color: #fff;
+    color: #008080;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateY(0px) scale(1.2);
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .type1:hover::after {
+    transform: translateY(0) scale(1.2);
+  }
+  
+  .type1:hover::before {
+    transform: translateY(-50px) scale(0) rotate(120deg);
+  }
+.logo-con img{
+    object-fit: contain;
+    
+    aspect-ratio: 3/2;
+}
+.title{
+    border-botto: 1px solid rgba(255, 255, 255, 0.5);
+    margin-top: 5px;
+    
+}
+.all{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(255, 253, 253, 0.904);
+    padding: 50px 100px;
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+.title h1{
+    color: #fdfdfc;
+    font-weight: 400;
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    box-shadow: 0PX 0PX 5PX rgb(210, 211, 209);
+    background-color: rgb(218, 221, 221);
+
+}
+form{
+    display: block;
+    justify-content: center;
+    text-align: center;
+    
+    
+    
+
+}
+.backg{
+    background-color:  rgb(0, 255, 200);
+    height: fit-content;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px;
+    width: 500px;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+
+div input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color:  rgba(36, 167, 167, 0.384);
+    border: none;
+    border-bottom: 1px solid rgb(116, 115, 115) ;
+  
+    box-shadow: 0px 0px 2px ;
+
+
+}
+div input:focus{
+    outline: none;
+    border-bottom: 1px seashell solid;
+    transition: 0.4s linear;
+    
+}
+
+
+.sub{
+  
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  
+  color: rgb(251, 251, 252);
+  
+  border: none;
+  border-radius: 5px;
+  
+}
+label{
+    color: rgb(2, 2, 2);
+}
+.sub:hover{
+    box-shadow: 0px 0px 5px whitesmoke;
+    transition: 0.1s linear;
+    font-weight: 500;
+
+    
+    
+}
+.Schoolname{
+    height: 25px;
+    width: 200px;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color:  rgba(36, 167, 167, 0.384);
+    border: none;
+    border-bottom: 1px solid rgb(116, 115, 115) ;
+  
+    box-shadow: 0px 0px 2px ;
+
+}
+.code{
+    width: 200px;
+}
+.username{
+    width: 200px;
+}
+.realname{
+    width: 200px;
+}
+.rule{
+    height: 25px;
+    width: 200px;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color:  rgba(36, 167, 167, 0.384);
+    border: none;
+    border-bottom: 1px solid rgb(116, 115, 115) ;
+  
+    box-shadow: 0px 0px 2px ;
+ 
+}
+@media(max-width:520px){
+    .backg{
+        width: 400px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+@media(max-width:450px){
+    .backg{
+        width: 300px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+@media(max-width:370px){
+    .backg{
+        width: 220px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

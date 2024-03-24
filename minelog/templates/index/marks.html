@@ -1,0 +1,41 @@
+{% extends "index/student.html" %}
+{% block title %}Class-Gate | Marks{% endblock %}{% block body %}
+
+<body style="border: 3px black; margin: 5px;" >
+    <table id="customers">
+      {% if '-ar' not in request.build_absolute_uri %}
+        <tr>
+          <th>Name</th>
+          <th>Subject</th>
+          <th>Mark</th>
+        </tr>
+        {% else %}
+
+        <tr >
+          <th style="text-align: right;">الاسم</th>
+          <th style="text-align: right;">المادة</th>
+          <th style="text-align: right;">الدرجة</th>
+        </tr>
+
+  {% endif %}
+        {% for test in tests %}
+        {% if test.school == rulee.school %}
+        <tr>
+        
+
+         <td>{{test.username.name}}</td>
+         <td>{{test.exam_name}}</td>
+         <td>{{test.mark}}/{{test.fullmark}}</td>
+      
+        </tr>
+
+        {% else %}
+        {% endif %}
+     {% endfor %}   
+      </table>
+
+
+ 
+{%endblock%}
+</body>
+</html>

@@ -1,0 +1,61 @@
+{% load static  %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="icon" href="{% static 'css/picss/mmn6.png'   %}">
+    <title>Class-Gate | Register</title>
+    <link rel="stylesheet" href="{% static 'index.css'  %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="back-con"><a style="align-items: center;" href="{% url 'main' %}" class="back"><i class="fa-solid fa-house"></i></a></div>
+        
+                        
+    </header>
+    <section class="main">
+            <div class="center">
+                <h1>REGISTER<p></p></h1>
+                <form class="list"  action="{% url 'register' %}" method="POST">
+                    {%  csrf_token  %}
+                    {%  if form.errors  %}
+                        <p style="background-color: rgba(0, 0, 255, 0.336); margin-bottom: 15px; padding-left: 10px;"><span style="color: brown; font-size: 1.6em;">Error</span> , looks like you've egnored the roles down there  </p>
+                        {% endif  %}
+                        <p style="font-size:15px ; color: rgb(147, 148, 200) ">Username:  <br>{{ form.username }}</p>
+                        <p style="font-size:15px ; color: rgb(147, 148, 200) ">Email:  <br>{{ form.email }}</p>
+                        <p style="font-size:15px ; color: rgb(147, 148, 200) ">Password  :  <br>{{ form.password1 }}</p>
+                        <p style="font-size:15px ; color: rgb(147, 148, 200) ">Confirm Password  :  <br>{{ form.password2 }}</p>
+                        <ul>Your password can’t be too similar to your other personal information.</ul>
+                        <ul>Your password must contain at least 8 characters.</ul>
+                        <ul>Your password can’t be a commonly used password.</ul> 
+                        <ul>Your password can’t be entirely numeric.</ul>
+                        
+                    
+                    
+                    
+                    
+                    <div class="pass"><a href="#" style="color: rgb(5, 156, 106)">Forgot Password?</a></div>
+                    <input class="login" type="submit" value="Login">
+                    <div class="signup_link" style="color: rgb(16, 17, 17)">
+                        {%  if url1 in url   %}
+                        Already have an acount ?<a href="{% url 'log-ar'%}">Log IN</a>
+                        {% else %}
+                        Already have an acount ?<a href="{% url 'log'%}">Log IN</a>
+                  
+                        {% endif %}
+                        
+                    </div>
+                    
+                </form>
+                <center><img style=" filter: drop-shadow(0 0 1rem rgb(36, 36, 36)); position: relative; margin-left: 40px; width: 60px; top: 100px;" src="{%  static 'css/picss/ice.png' %}" class="logo-img" alt="logo" ></center>
+            </div>
+            
+        
+    </section>
+</body>
+</html>
