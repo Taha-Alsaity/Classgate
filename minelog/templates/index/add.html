@@ -30,7 +30,9 @@
   
       <label for="lname">Name</label>
       <input type="text" id="lname" name="name" placeholder="Name here...">
-        
+      
+      <label for="lname">Name in Arabic</label>
+      <input type="text" id="lname" name="namear" placeholder="Name here...">
 
       <label for="country">Fullmark</label>
       <input style="width: 100%; height: 50px;" min="5" type="number" step="0.1" id="fname" name="fullmark" placeholder="">
@@ -67,13 +69,8 @@
         <input type="text" id="lname_{{ num }}" name="answ-{{num}}" placeholder="Enter the answer...">
         
         <label for="country_{{ num }}">Quiz Mark</label>
-        <input style="width: 100%; height: 50px;" min="0" type="number" step="0.1" id="country_{{ num }}" name="mark-{{num}}" placeholder="">
+        <input style=" margin-bottom: 60px; width: 100%; height: 50px;" min="0" type="number" step="0.1" id="country_{{ num }}" name="mark-{{num}}" placeholder="">
        
-        <label for="country_{{ num }}">Option 1 Number</label>
-        <input type="number" id="country_{{ num }}" name="opt1-{{num}}" placeholder="" step="1" min="0">
-     
-        <label for="country_{{ num }}">Option 2 Number</label>
-        <input style=" margin-bottom: 60px; width: 100%; height: 50px;" min="0" type="number" step="1" id="country_{{ num }}" name="opt2-{{num}}" placeholder="">
 </div>
 
   {% endfor %}     
@@ -138,16 +135,18 @@
 
     <label for="lname">الاسم</label>
     <input type="text" id="lname" name="name" placeholder="Name here...">
-      
+
+    <label for="lname"> الاسم بالعربية</label>
+    <input type="text" id="lname" name="namear" placeholder="Name here...">   
 
     <label for="country">درجة الاختبار</label>
-    <input style="width: 100%; height: 50px;" min="5" type="number" step="0.1" id="fname" name="fullmark" placeholder="">
+    <input style=" font-family: sans-serif; width: 100%; height: 50px;" min="5" type="number" step="0.1" id="fname" name="fullmark" placeholder="">
      
     <label for="country">نصف الدرجة</label>
-    <input type="number" id="fname" name="half" placeholder="" step="0.1" min="0">
+    <input style="font-family: sans-serif;" type="number" id="fname" name="half" placeholder="" step="0.1" min="0">
    
     <label for="country">عدد الاسئلة</label>
-    <input style="width: 100%; height: 50px;" min="0" type="number" step="1" id="fname" name="qnum" placeholder="">
+    <input style=" font-family: sans-serif; width: 100%; height: 50px;" min="0" type="number" step="1" id="fname" name="qnum" placeholder="">
      
   
     <input style="margin-top: 30px;" type="submit" value="اضف">

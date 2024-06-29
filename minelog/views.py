@@ -21,16 +21,8 @@ from random import randint
 from .forms import Member
 from django.core.exceptions import ObjectDoesNotExist
 
-#students
-#taha
-taha = ('Taha Alsaity')
-tcode = (123123)
-#ahmed
-ahmed = ('Ahmed Shokri')
-acode = (4444)
-#khaled
-khaled = ('Khaled Saber')
-kcode = (54321)
+
+
 
 
 
@@ -196,7 +188,7 @@ def code(request):
             form = Member(request.POST)
             if form.is_valid():
                 
-                username = form.cleaned_data['username']
+                
                 realname = form.cleaned_data['name']
                 code = form.cleaned_data['code']
                 schooll = form.cleaned_data['school']
@@ -205,12 +197,12 @@ def code(request):
                 try:
                     student1 = Students.objects.get(name=realname)
 
-                    if username == request.user.username and realname == student1.name  and code == student1.password and schooll == student1.school  and student1.rule == rulle  and student1.rule == "S" :
+                    if  realname == student1.name  and code == student1.password and schooll == student1.school  and student1.rule == rulle  and student1.rule == "S" :
                        request.session['my_name'] = student1.name
                        messages.success(request,f"{student1.name}  You are a Member of {student1.school.School_Name} school")
                        return redirect(f'{student1.school.School_Name}-Student')
 
-                    elif username == request.user.username and realname == student1.name  and code == student1.password and schooll == student1.school  and student1.rule == rulle  and student1.rule == "T" :
+                    elif realname == student1.name  and code == student1.password and schooll == student1.school  and student1.rule == rulle  and student1.rule == "T" :
                        request.session['my_name'] = student1.name
                        messages.success(request,f"{student1.name}  You are a Member of {student1.school.School_Name} school")
                        return redirect(f'{student1.school.School_Name}-Teacher')
@@ -430,10 +422,11 @@ def AddExam(request):
   if request.method == 'POST':
       cate = request.POST['category']
       name = request.POST['name']
+      namear = request.POST['namear']
       qnum = request.POST['qnum']
       full = request.POST['fullmark']
       half = request.POST['half']
-      exam_form = Exam(school=rule.school, teacher=rule,category=cate, name=name,quizsnumber=qnum,fullmark=full,half=half)
+      exam_form = Exam(school=rule.school,arname=namear, teacher=rule,category=cate, name=name,quizsnumber=qnum,fullmark=full,half=half)
       exam_form.save()
       choice = 'exform'
       
@@ -446,14 +439,17 @@ def AddExam(request):
 def Quizform(request):
     forqq = Exam.objects.get(id=request.POST['qfor'])
     if request.method == 'POST':
+        x = 1
         for num in range(int(forqq.quizsnumber)):
-
+            
             forq = Exam.objects.get(id=request.POST['qfor'])
             Q = request.POST[f'quiz-{num}']
             A = request.POST[f'answ-{num}']
             M = request.POST[f'mark-{num}']
-            Op1 = request.POST[f'opt1-{num}']
-            Op2 = request.POST[f'opt2-{num}']
+            Op1 = x
+            x +=1
+            Op2 = x
+            x +=1
             examQ_form = ExamQ(examid=forq, question=Q,answer=A,qmark=M,opt1id=Op1,opt2id=Op2)
             examQ_form.save()
     if '-ar' in request.build_absolute_uri():

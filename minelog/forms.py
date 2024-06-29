@@ -13,7 +13,7 @@ class RegisterUserForm(UserCreationForm):
 
 
 class Member(forms.Form):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class':'username' ,}))
+  
     name = forms.CharField(widget=forms.TextInput(attrs={'class':'realname'}))
     school = forms.ModelChoiceField(queryset=Schools.objects.all(), to_field_name='School_Name',required=True,widget=forms.Select(attrs={'class':'Schoolname'}))
     code = forms.IntegerField(widget=forms.NumberInput(attrs={'class' : 'code'}))
