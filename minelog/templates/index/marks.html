@@ -1,12 +1,20 @@
 {% extends "index/student.html" %}
 {% block title %}Class-Gate | Marks{% endblock %}{% block body %}
+<<<<<<< HEAD
 <body style="border: 3px black; margin: 5px;" >
     <table id="customers">
+=======
+
+<body style="border: 3px black; margin: 5px;" >
+    <table id="customers">
+      {% if '-ar' not in request.build_absolute_uri %}
+>>>>>>> web50/projects/2020/x/capstone
         <tr>
           <th>Name</th>
           <th>Subject</th>
           <th>Mark</th>
         </tr>
+<<<<<<< HEAD
         {% for test in tests %}
         <tr>
         
@@ -18,6 +26,30 @@
         </tr>
 
       
+=======
+        {% else %}
+
+        <tr >
+          <th style="text-align: right;">الاسم</th>
+          <th style="text-align: right;">المادة</th>
+          <th style="text-align: right;">الدرجة</th>
+        </tr>
+
+  {% endif %}
+        {% for test in tests %}
+        {% if test.school == rulee.school %}
+        <tr>
+        
+
+         <td>{{test.username.name}}</td>
+         <td>{{test.exam_name}}</td>
+         <td>{{test.mark}}/{{test.fullmark}}</td>
+      
+        </tr>
+
+        {% else %}
+        {% endif %}
+>>>>>>> web50/projects/2020/x/capstone
      {% endfor %}   
       </table>
 

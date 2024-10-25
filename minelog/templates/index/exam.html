@@ -1,0 +1,121 @@
+{% extends "index/student.html" %}
+{% block title %}Class-Gate | Exams{% endblock %}{% block body %}
+
+{% if '-ar' not in request.build_absolute_uri %}
+
+<body style="border: 3px black; margin: 5px; display: flex; flex-direction: column;">
+    {% if url == 'eex' %}
+    <div style="display: flex; flex-direction: column; width: 100%; padding: 10px;">
+    <h1 style="text-align: center; font-weight: 500; background-color: rgb(57, 172, 12); color: antiquewhite;">{{exam.category}}: {{exam.name}}</h1>
+    <p style="font-size: 1.3em;">True or False questions:</p>
+    <form action="{% url 'Q' id=exam.id name=exam.name %}"  method="POST">
+        {%  csrf_token  %}
+        {% for examq in examqs %}
+        <p style="font-size: 1.1em;">{{examq.question}}:</p>
+        <nav class="allopt" style="display: flex;">
+        <div  class="customCheckBoxHolder">
+
+            <input type="radio" id="cCB{{ examq.opt1id }}" name="optionsfor{{ examq.id }}" value="True" class="customCheckBoxInput">
+            <label for="cCB{{ examq.opt1id }}" class="customCheckBoxWrapper">
+                <div class="customCheckBox">
+                    <div class="inner">True</div>
+                </div>
+            </label>
+
+        </div><div  class="customCheckBoxHolder">
+            <input  type="radio" id="cCB{{ examq.opt2id }}" name="optionsfor{{ examq.id }}" value="False" class="customCheckBoxInput2">
+            <label for="cCB{{ examq.opt2id }}" class="customCheckBoxWrapper2">
+                <div  class="customCheckBox2">
+                    <div class="inner">False</div>
+                </div>
+            </label>
+        </div> 
+        </nav>
+        {% endfor %}
+        <nav style="text-align: center; margin: 30px;">
+            <button class="button type1">
+            </button>
+    </nav>
+    </form>
+</div>
+    {% else %}
+    {% endif %}
+    {% if mark is not None %}
+
+        <div style=" width: 100%; margin-top: 130px; justify-content: center; text-align: center;">
+    <h1 style="text-align: center;  color:  rgb(167, 166, 166); font-size: 2.5em; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">your mark is</h1>
+    
+    {% if mark >= exam.half %}
+    <p style="text-align: center; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 2.8em; color: blue;"><span style="color: rgb(119, 177, 33);">{{mark}}</span>/{{ exam.fullmark }}</p>
+    <h1 style="text-align: center;  font-size: 3em; color: rgb(127, 189, 35);">Congrates!</h1>
+    {% else %}
+    <p style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 2.8em; color: blue;"><span style="color: rgb(177, 55, 33);">{{mark}}</span>/{{ exam.fullmark }}</p>
+    <h1 style="text-align: center; font-size: 3em; color: rgb(218, 64, 64);">Not what we were expecting</h1>
+    {% endif %}
+</div>
+    {% else %}
+    
+    {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    {% else %}
+
+
+    <body dir="rtl" style="border: 3px black; margin: 5px; display: flex; flex-direction: column;">
+        {% if url == 'eex' %}
+        <div style="display: flex; flex-direction: column; width: 100%; padding: 10px;">
+        <h1 style="text-align: center; font-weight: 500; background-color: rgb(57, 172, 12); color: antiquewhite;">{{exam.arname}} : {{exam.category}} </h1>
+        <p style="font-size: 1.3em;">اسئلة الاختيار صح او خطأ:</p>
+        <form action="{% url 'Q-ar' id=exam.id name=exam.name %}"  method="POST">
+            {%  csrf_token  %}
+            {% for examq in examqs %}
+            <p style="font-size: 1.1em;">{{examq.question}}:</p>
+            <nav class="allopt" style="display: flex;">
+            <div  class="customCheckBoxHolder">
+    
+                <input type="radio" id="cCB{{ examq.opt1id }}" name="optionsfor{{ examq.id }}" value="True" class="customCheckBoxInput">
+                <label for="cCB{{ examq.opt1id }}" class="customCheckBoxWrapper">
+                    <div class="customCheckBox">
+                        <div class="inner">صح</div>
+                    </div>
+                </label>
+    
+            </div><div  class="customCheckBoxHolder">
+                <input  type="radio" id="cCB{{ examq.opt2id }}" name="optionsfor{{ examq.id }}" value="False" class="customCheckBoxInput2">
+                <label for="cCB{{ examq.opt2id }}" class="customCheckBoxWrapper2">
+                    <div  class="customCheckBox2">
+                        <div class="inner">خطأ</div>
+                    </div>
+                </label>
+            </div> 
+            </nav>
+            {% endfor %}
+            <nav style="text-align: center; margin: 30px;">
+                <button class="button type1">
+                </button>
+        </nav>
+        </form>
+    </div>
+        {% else %}
+        {% endif %}
+        {% if mark is not None %}
+    
+            <div style=" width: 100%; margin-top: 130px; justify-content: center; text-align: center;">
+        <h1 style="text-align: center;  color:  rgb(167, 166, 166); font-size: 2.5em; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">نتيجتك هي</h1>
+        
+        {% if mark >= exam.half %}
+        <p style="text-align: center; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 2.8em; color: blue;"><span style="color: rgb(119, 177, 33);">{{mark}}</span>/{{ exam.fullmark }}</p>
+        <h1 style="text-align: center;  font-size: 3em; color: rgb(127, 189, 35);">مبروك!</h1>
+        {% else %}
+        <p style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 2.8em; color: blue;"><span style="color: rgb(177, 55, 33);">{{mark}}</span>/{{ exam.fullmark }}</p>
+        <h1 style="text-align: center; font-size: 3em; color: rgb(218, 64, 64);">حاول مرة اخرى</h1>
+        {% endif %}
+    </div>
+        {% else %}
+        
+        {% endif %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    
+    {% endif %}
+{% endblock %}
+</body>
+</html>

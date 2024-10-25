@@ -1,0 +1,282 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="science,enviroment,planet,people life">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+
+    <link rel="stylesheet" href="{% static 'css/Taha-AR.css' %}">
+    <link  rel="icon" href="{% static 'css/picss/mmn6.png'   %}">
+    <title>Class-Gate | Home</title>
+    {% block body %}
+    <style>
+        .sear-b{
+            background: none;
+            border: none;
+        }
+        .sear-b:hover{
+            cursor: pointer;
+        }
+        .fino p{
+            color: silver;
+        }
+        .alert{
+        background-color: rgb(158, 93, 9);
+        display: flex;
+        color: aliceblue;
+        padding:15px;
+        border-radius: 4px;
+        border: 0.5px solid rgb(49, 33, 3);
+        
+        
+        justify-content: center;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        box-shadow:0px 5px 10px rgb(146, 145, 145) ;    }
+    .btn-close{
+        margin-left: 20px;
+        background: none;
+        border: none;
+        font-size: 1.2em;
+        color: antiquewhite;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    .btn-close:hover{
+        cursor: pointer;
+        color: rgb(75, 12, 12);
+        
+    }
+    
+    .vsv{
+        margin-top: 70px;
+        
+        
+    }
+    .gre{
+        background-color: black;
+        color: rgb(18, 180, 126);
+    }
+
+        </style>
+   
+</head>
+<body class="body" style=" transition: all 1.5s; opacity: 0; background-color:rgba(6, 6, 6, 0.841) ;" dir="rtl">
+    <header>
+        
+        <a  href="#" class="logo" ><img src="{% static 'css/picss/c-ar.png' %}" class="img" alt="logo" width="220"></a>
+        
+        <div class="spans">
+            
+
+            <span class="v">
+            <nav class="navigation">
+               
+                <a class="nav-b" href="#Services">الخدمات</a>
+                <a class="nav-b" href="#" id="contact">تواصل معنا</a>
+                <a class="nav-b" href="#join">انظم</a>
+                
+            </nav></span>
+      
+           <span  class="v">
+            <a style="align-items: center; font-weight: 500;" href="{% url 'log-ar'  %}" class="log"><i style="align-items: center; margin-right: 4px; "  class="fa-solid fa-right-to-bracket"></i><p>تسجيل الدخول</p></a>
+            </span>
+             
+            <span class="v">
+           <form class="form" action="{%  url 'search'  %}" name="q" method="POST">
+                    {% csrf_token %}
+                <input type="hidden" name="" value="">
+                <nav class="search-box"><input type="text" placeholder="  البحث" autocomplete="on" name="q" class="input"> 
+                    
+                <a class="search-btn" href="#">
+                <button class="sear-b" value="submit"><i class="fa-solid fa-magnifying-glass"></i></button >
+                </a>
+                
+                </nav>
+                
+                </form></span>
+            
+            <span class="v">
+            <a   href="{% url 'main' %}" class="ar">EN
+            </a><button class="exit"><i class="fa-regular fa-circle-xmark"></i></button></span></div>
+</span>
+                       <button class="list-m"><i class="fa-solid fa-list"></i></button>
+            </div>
+    </header>
+    <div class="load-con">
+        <span class="loader"></span>
+    </div>
+    <section class="main">
+        {% for message in messages  %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <p>{{message}}</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">×</button>
+          </div>
+          {%  endfor %}
+        <div class="sen">
+            <nav style="display: flex; justify-content: space-between;">
+            <div class="sen1">
+            <nav class="view">
+            <h2><p>اهلا بيكم!</p></h2> <br><h2><span>افتح بوابتك للتعلم الرقمي</span></h2>
+            <h3 style="font-size: 1.1em;">اكتشف , تواصل , و تعلم</h3>
+            <a></a></nav>
+            <nav class="icons">
+        <div class="social-btn1">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        </div><div class="social-btn2">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            
+        </div><div class="social-btn3">
+            <a href="#"><i class="fa-brands fa-discord"></i></a>
+        </div>
+        </nav></div>
+        <img class="main_img" src="{% static 'css/picss/ipho.png' %}" alt=""   ></nav>
+        <form class="form" action="{%  url 'search'  %}" name="q" method="POST">
+            {% csrf_token %}
+        <input type="hidden" name="" value="">
+        <nav class="search-box2"><input type="text" placeholder="  search" autocomplete="on" name="q" class="input2"> 
+            
+        <a class="search-btn2" href="#">
+        <button class="sear-b2" value="submit"><i class="fa-solid fa-magnifying-glass"></i></button >
+        </a>
+        
+        </nav>
+        
+        </form></div>
+    </section >
+    
+    <section id="join" class="sec-2">
+        <div class="al2">
+        <nav style=" display: flex; justify-content: center; color: white; background-color: rgba(23, 171, 132, 0.948); height: 45px ;  border-bottom: 2px solid rgb(154, 152, 152);" class="scl">
+        <h1 style=" position: relative;bottom: 20px; color:white;">اختار مدرستك</h1></nav>
+        
+        <nav class="name">
+        <nav class="babel">
+            <a href="{% url 'log-ar'  %}"><img src="{% static 'css/picss/School.png' %}" class="babel-img" alt="logo" width="120px"> </a>
+            <p class="bab-n">المدرسة A</p>
+        </nav><nav class="ssa">
+            <a href="{% url 'log-ar'  %}"><img src="{% static 'css/picss/School2.png' %}" class="ssa-img" alt="logo" width="120px"></a>
+            <br><label class="ssa-n">المدرسة B</label></nav>
+            <nav class="talent">
+            <a href="{% url 'log-ar'  %}"><img src="{% static 'css/picss/School3.png' %}" class="tal-img" alt="logo" width="120px"></a>
+            <br><label class="tal-n">المدرسة C</label>
+        </nav>
+        </nav>
+</div>
+    </section>
+    <section  class="three">
+        <h1>الأحصائيات</h1>
+        <div class="nums">
+            <div class="card">
+                <div class="item item--1">
+                 <i class="fa-solid fa-user"></i>
+                  <span class="quantity"><div class="num" data-goal="{{usersss}}">0</div></span>
+                  <span class="text text--1">المستخدمون الحاليون</span>
+                </div>
+                <div class="item item--2">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                   <span class="quantity"> <div class="num" data-goal="{{total}}">0</div> </span>
+                  <span class="text text--2">الطلبة</span>
+                </div>
+                <div class="item item--3">
+                    <i class="fa-solid fa-school"></i> 
+                  
+                  <span class="quantity"><div class="num" data-goal="3">0</div> </span>
+                  <span class="text text--3">المدارس</span>
+                </div>
+              
+               
+              </div></div>
+            
+
+    </section>
+
+    <section id="Services" class="sec-3">
+        <div class="all-a-3">
+            <nav class="main-3">
+            <h1 style="font-size: 1.4em;">
+                 المزايا <span>و</span>  الخدمات
+            </h1>    
+            </nav>
+            <nav class="parag-3">
+                <div class="part-1">
+                    <ul>
+                <h2>داخل المدرسة</h2><li>- يمكنك حظور الحصص مباشرة عن طريق الديسكورد او التسجيلات في موقعنا!</li>
+                <li>- كل الامتحانات سيتم رفعها على الموقع و يمكن لأي طالب ان يمتحن ويحصل على النتيجه فورا</li>
+                </ul></div><img class="online" src="{% static 'css/picss/sec-3.png' %}">
+                </nav><nav class="parag-4">
+                    <div class="part-2"><ul>
+                <h2 id="ser-3">التواصل و الخدمات</h2>
+                <li>-موقعنا متوفر على جميع الاجهزه </li></ul></div>
+                <img class="online-2" src="{% static 'css/picss/backg2.jpg' %}">
+            </nav>
+            
+        </div>
+    </section>
+    <footer class="fooo">
+        <div class="most">
+        <div class="fo-social">
+        <nav class="ins-ffo">
+        <a class="ins-fo" width="150"><i class="fa-brands fa-instagram"></i><p class="ins-w">@classgate</p></a></nav>
+        <nav class="dis-ffo">
+        <a class="dis-fo" href="#"><i class="fa-brands fa-discord"></i> <button class="ser-link" >Server Link</button> 
+            </a></nav><br>
+            <nav class="fb-ffo">
+        <a class="fb-fo"><i class="fa-brands fa-facebook"></i><p class="fb-w">ClassGate</p></a></nav></div>
+        <div>
+        <a><img src="{% static 'css/picss/icwe.png' %}" class="img-fo" alt="logo" width="40"></a></div>
+        <div class="down-fo">
+        <a class="gp-fo"><i class="fa-brands fa-google-play"></i> <p>CG</p></a>
+        <a class="apps-fo"><i class="fa-brands fa-app-store"></i> <p>CG</p></a></div>
+        </div><div style="padding-bottom: 50px;" class="fino" ><h1>Powered by</h1><nav class="last" style="">        <p class="l-left" style=""><img style="margin-top: 10px;" src="{% static 'css/picss/cccwe.png'%}" alt="" ></p>
+        
+            <p class="l-right" style="">  Production<img style="  align-items: center; padding-left: 5px; " src="{% static 'css/picss/ecow4v2.png' %}" width="" alt="">
+              </p>  </nav>
+    </div>
+    </footer>
+    <script defer src="{% static 'css/javasc/scr/js.js' %}"></script>
+    <script>
+        document.getElementById('contact').addEventListener('click',  function(){
+            Swal.fire({
+                customClass: {
+      container: 'vsv',
+      confirmButton: 'gre'},
+      toast: true,
+      position: 'top',
+      title: '<strong>ارسل <u>لنا</u></strong>',
+      icon: 'info',
+      width: '400px',
+      html:
+        'سوف <b>نرد</b> في اسرع وقت ' +
+        '<u style="color: blue">classgate@gmail.com</u> ' ,
+        
+      showCloseButton: true,
+    
+      focusConfirm: false,
+      confirmButtonText:
+        ' تمام!',
+       confirmButtonColor:'rgb(18, 180, 126)',
+    
+      confirmButtonAriaLabel: ' great!',
+    
+      
+    })
+        })
+        </script>
+        <script type="text/javascript">
+            window.addEventListener('scroll',function(){
+                var header = document.querySelector('header');
+                header.classList.toggle("sticy", window.scrollY > 0);
+            })
+
+        </script> 
+      {% endblock %}  
+</body>
+</html>

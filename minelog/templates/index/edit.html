@@ -1,0 +1,33 @@
+{%  load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/edit.css'  %}">
+    <link  rel="icon" href="{% static 'css/picss/mmn6.png'   %}">
+    <title>Class-Gate | Edit</title>
+</head>
+<body>
+    <img style="filter: drop-shadow(0 0 0.5rem rgba(48, 226, 173, 0.993));" src="{%  static 'css/picss/ice.png'  %}" alt="" width="40px"><h1 style="font-size: 1.3em; margin: 10px; color: rgb(44, 44, 44); font-weight: 600;">Edit Username</h1><div class="main">
+        
+    <form action="{%  url 'new'  %}" method="post">
+        {% csrf_token  %}
+        <nav>
+        <label for="">Username:</label>
+        <input class="t"type="text" name="username" ></nav>
+        <nav>
+        <label for="">Password:</label>
+        <input class="tb" type="password" name="password"></nav>
+        <nav>
+        <label for="">New username:</label>
+        <input class="ta" type="text" name="new_name"></nav>
+        
+        <button class="button type1">
+        </button>
+    </form>
+    
+    </div>
+</body>
+</html>

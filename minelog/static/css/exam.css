@@ -1,0 +1,21 @@
+
+.finish{
+    
+    text-align: center;
+    font-size: 1.8em; 
+    border-radius: 10px; 
+    background-color: aliceblue; 
+    color: rgb(89, 197, 16); 
+    border: none;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    
+    letter-spacing:1px;
+
+}
+.finish:hover{
+    box-shadow: 0px 1px 4px rgb(115, 116, 115);
+    
+    transition: 0.2s linear ;
+    
+
+
+}

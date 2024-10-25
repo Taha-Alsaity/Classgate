@@ -1,0 +1,282 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%  static  'g/student.css'  %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <link  rel="icon" href="{% static 'css/picss/mmn6.png'   %}">
+    <title>Class-Gate | Membership</title>
+    {% if '-ar' in request.build_absolute_uri %}
+    <style>
+          
+  .type1::after {
+    content: "انقر";
+
+  }
+  
+  .type1::before {
+    content: "انتهيت";
+
+  }
+  @media (max-width:570px){
+  aside{
+    position:fixed;
+    transform: translatex(100%);
+    transition: all 0.3s linear;
+   z-index: 1
+  }}
+                   .exs{
+        
+        background-color: #fdfdfda9;
+     }
+     .list2:hover{
+      
+        background-color: #cfcdcda9;
+     }
+     .list2 button a{
+        font-family:
+                    'Indie Flower', cursive
+                    ,'Kalam', cursive
+                    ,'Kanit', 
+                    'Readex Pro',
+                    'Sansita', sans-serif
+                    ,'Sofia Sans Semi Condensed', 
+                    'Ysabeau Office', sans-serif;
+                    font-size: 0.8em;
+                    margin-left: 5px;
+     }
+     .list a p{
+        font-family:
+                    'Indie Flower', cursive
+                    ,'Kalam', cursive
+                    ,'Kanit', 
+                    'Readex Pro',
+                    'Sansita', sans-serif
+                    ,'Sofia Sans Semi Condensed', 
+                    'Ysabeau Office', sans-serif;
+                    font-size: 0.7em;
+     }
+     .body *:not(#side i):not(#unside i){
+    font-family: 'Indie Flower', cursive,
+                 'Kalam', cursive,
+                 'Kanit',
+                 'Readex Pro',
+                 'Sansita', sans-serif,
+                 'Sofia Sans Semi Condensed',
+                 'Ysabeau Office', sans-serif;
+}
+
+     .list a{
+        font-family:
+                    'Indie Flower', cursive
+                    ,'Kalam', cursive
+                    ,'Kanit', 
+                    'Readex Pro',
+                    'Sansita', sans-serif
+                    ,'Sofia Sans Semi Condensed', 
+                    'Ysabeau Office', sans-serif;
+     }
+    </style>
+    {%else%}
+
+    <style>
+                   .exs{
+        
+        background-color: #fdfdfda9;
+     }
+     .list2:hover{
+      
+        background-color: #cfcdcda9;
+     }
+    </style>
+    {% endif %}
+    </head>
+    {% if '-ar' in request.build_absolute_uri %}
+    <body dir="rtl"  style="justify-content: center; background-color: rgba(250, 247, 247, 0.856);">
+
+
+
+
+
+        <header style="display: flex; justify-content: space-between; height: 50px; background-color: aliceblue; align-items: center;">
+                 
+                <div style="display: flex; justify-content: left; text-align: left;" class="up">
+                <button id="side"  style=" opacity: 0; background: none; border: none; align-items: center; font: 1.3em sans-serif;padding-right: 20px; margin-left: 5px; display: block; justify-content: left; text-align: left; overflow: hidden; z-index: 1;" class="side"><i class="fa-solid fa-list"></i></button>
+        
+                </div> 
+                <img src="{% static 'css/picss/c-ar2.png' %}" width="145px" alt="" height="28" style=" margin-left:auto; margin-right:auto; display: flex;  right: 10px;  position: relative; align-items: center; "></nav>
+             
+        {% for message in messages  %}
+                <div style="  position: absolute; top: 20px; right: 20px;" class="alert alert-warning alert-dismissible fade show" role="alert">
+            <p>{{message}}</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        
+          {%  endfor %}   
+             
+            </header>
+            <div class="content">
+                <aside id="aside">
+                    <nav  class="list">
+        
+                        <button id="butt" class="btn btn-primary "  type="button" data-bs-toggle="dropdown" aria-expanded="false" style=" font-family: 'Arial', sans-serif; background-color: rgba(7, 179, 136, 0.559); cursor:default; border-radius: 0px 0px 4px 4px;">
+                            {{ request.user.username }}
+                        </button>
+        
+        
+                        {% if rulee.rule == 'T' %}
+                        <a style="" href="{% url rulee.school.School_Name|add:'-Teacher-ar' %}">المحتوى</a>
+                        <a style="padding-right: 8px;" href="{% url 'add-ar' %}">اضاقة<p style=" align-items: center; padding-top: 15px; margin-right: 5px;  color: #2c2c2cc9; ">للمعلمين فقط</p></a>
+                     
+                        {% elif rulee.rule == 'S' %}
+                        <a href="{% url rulee.school.School_Name|add:'-Student-ar' %}">المحتوى</a>
+                        {% endif %}
+                        <a href="{% url 's1exam-ar' %}">اختبارات</a>
+                        <a href="{% url 'marks-ar' %}">الدرجات</a>
+                        <a href="{%  url 'user-ar'  %}"  type="button">خروج</a>
+                        <a href="{%  url 'logout'  %}"  type="button">تسجيل خروج</a>
+                        <a href="{% url rulee.school.School_Name|add:'-Student' %}">الانجليزية</a>
+                         <button style=  " opacity: 0;  margin-top:60px; background: none; border: none; margin-bottom: 5px; font-size: 3em;" id="unside"><i class="fa-regular fa-circle-xmark"></i></button>
+                     </nav>
+                </aside>{% else %} 
+<body   style="justify-content: center; background-color: rgba(250, 247, 247, 0.856);">
+
+
+
+
+
+<header style="display: flex; justify-content: space-between; height: 50px; background-color: aliceblue; align-items: center;">
+         
+        <div style="display: flex; justify-content: left; text-align: left;" class="up">
+        <button id="side"  style=" opacity: 0; background: none; border: none; align-items: center; font: 1.3em sans-serif;padding-right: 20px; margin-left: 5px; display: block; justify-content: left; text-align: left; overflow: hidden; z-index: 1;" class="side"><i class="fa-solid fa-list"></i></button>
+
+        </div> 
+        <img src="{% static 'css/picss/ccce.png' %}" width="125px" alt="" height="28" style=" margin-left:auto; margin-right:auto; display: flex;  right: 10px;  position: relative; align-items: center; "></nav>
+     
+{% for message in messages  %}
+        <div style="  position: absolute; top: 20px; right: 20px;" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <p>{{message}}</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  {%  endfor %}   
+     
+    </header>
+    <div class="content">
+        <aside id="aside">
+            <nav class="list">
+
+                <button  class="btn btn-primary "  type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgba(7, 179, 136, 0.559); cursor:default; border-radius: 0px 0px 4px 4px;">
+                    {{ request.user.username }}
+                </button>
+
+
+                {% if rulee.rule == 'T' %}
+                <a href="{% url rulee.school.School_Name|add:'-Teacher' %}">Content</a>
+                <a style="" href="{% url 'add' %}">Add <p style=" align-items: center; padding-top: 15px; margin-left: 5px;  color: #2c2c2cc9; font-size: 0.8em;">For teachers only</p></a>
+             
+                {% elif rulee.rule == 'S' %}
+                <a href="{% url rulee.school.School_Name|add:'-Student' %}">Content</a>
+                {% endif %}
+                <a href="{% url 's1exam' %}">Exams</a>
+                <a href="{% url 'marks' %}">Marks</a>
+                <a href="{%  url 'userr'  %}"  type="button">Exit</a>
+                <a href="{%  url 'logout'  %}"  type="button">Logout</a>
+                <a href="{% url rulee.school.School_Name|add:'-Student-ar' %}">Arabic</a>
+                 <button style=  " opacity: 0;  margin-top:60px; background: none; border: none; margin-bottom: 5px; font-size: 3em;" id="unside"><i class="fa-regular fa-circle-xmark"></i></button>
+             </nav>
+        </aside>{% endif %}{% block body %}{% if '-ar' not in request.build_absolute_uri %}
+        
+        <main style=""><h1 style="opacity: 0;" class="T" data-shadow='Classes'>Classes</h1>  
+       <div style=" padding: 5px;  width: auto; display: flex; flex-direction: column; justify-content: center; text-align: center; " class="c-all">  
+            
+          {% for vid in content %}
+          {% if vid.school == rulee.school %} 
+    <div style=" min-width: 100px; border-radius: 6px; background-color: #2c2c2c; justify-content: center; text-align: center; display: block; width: 100%; margin-bottom: 0px;" class="video-container">
+            <iframe width="540" height="315" src="{{vid.vedio}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ </div><nav style=" background-color: #2c2c2c; color: rgb(251, 249, 249); height: 60%;  padding-bottom: 0px; margin-bottom: 60px; margin-top: 5px; border-bottom: 5px solid rgb(11, 11, 11);;  display: flex;  overflo: hidden; position:relative; box-shadow: 0px 0px 0px;   padding-top: 0; ">
+            <span style=" margin-top: 5px; margin-right: 5px;" >{{ vid.keyword }}</span>
+                <p style=" position: relative; botto: 270px ; lef: 40px; overflow: hidden;to: 0;margin-top: 5px; " clas="infooo">{{vid.title}}</p>
+         </nav>  
+         {% else %}
+         {% endif %}
+{% endfor %}
+
+        </div></main>{% else %}
+       
+          
+        <main dir="ltr" style=""><h1 style="opacity: 0;" class="T" data-shadow='Classes'>محاضرات</h1>  
+       <div style=" padding: 5px;  width: auto; display: flex; flex-direction: column; justify-content: center; text-align: center; " class="c-all">  
+            
+          {% for vid in content %}
+          {% if vid.school == rulee.school %} 
+    <div style=" min-width: 100px; border-radius: 6px; background-color: #2c2c2c; justify-content: center; text-align: center; display: block; width: 100%; margin-bottom: 0px;" class="video-container">
+            <iframe style="left:3%;" width="540" height="315" src="{{vid.vedio}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ </div><nav dir="ltr" style=" text-align: right; background-color: #2c2c2c; color: rgb(251, 249, 249); height: 60%;  padding-bottom: 0px; margin-bottom: 60px; margin-top: 5px; border-bottom: 5px solid rgb(11, 11, 11);;  display: flex;  overflo: hidden; position:relative; box-shadow: 0px 0px 0px;   padding-top: 0; ">
+            <span style=" margin-left:10px ; text-align: right; margin-top: 5px; margin-right: 5px;" >{{ vid.keyword }}</span>
+                <p style="text-align: right; position: relative; botto: 270px ; lef: 40px; overflow: hidden;to: 0;margin-top: 5px; " clas="infooo">{{vid.title}}</p>
+         </nav>  
+         {% else %}
+         {% endif %}
+{% endfor %}
+
+        </div></main>
+        {% endif %}
+
+    {% endblock %}</div>
+    {% if '-ar' not in request.build_absolute_uri %}
+        
+<script defer >
+    if(screen.width < 570 ){
+document.getElementById('unside').style.opacity = '1';
+document.getElementById('side').style.opacity = '1';
+
+    document.getElementById('side').addEventListener('click', function(){
+    document.getElementById('aside').style.transform = 'translatex(0)'
+
+});
+
+    document.getElementById('unside').addEventListener('click', function(){
+    document.getElementById('aside').style.transform = 'translatex(-100%)'
+    
+});
+
+
+
+    };
+
+</script>
+{% else %}
+<script defer >
+    if(screen.width < 570 ){
+document.getElementById('unside').style.opacity = '1';
+document.getElementById('side').style.opacity = '1';
+
+    document.getElementById('side').addEventListener('click', function(){
+    document.getElementById('aside').style.transform = 'translatex(0)'
+
+});
+
+    document.getElementById('unside').addEventListener('click', function(){
+    document.getElementById('aside').style.transform = 'translatex(100%)'
+    
+});
+
+
+
+    };
+
+</script>
+{% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+</body>
+</html>
