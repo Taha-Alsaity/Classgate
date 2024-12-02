@@ -44,10 +44,10 @@ def log(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            if   '/Classgate/log-ar/' in  request.META.get('HTTP_REFERER')  :
+            if   'log-ar/' in  request.META.get('HTTP_REFERER')  :
                 messages.success(request,f'مرحبا !{request.user.username} استمتع بوقتك')
                 return redirect('user-ar')
-            elif  '/Classgate/log-en/' in  request.META.get('HTTP_REFERER') :
+            elif  'log-en/' in  request.META.get('HTTP_REFERER') :
                 messages.success(request,f'Welcome {request.user.username} enjoy your time')
                 return redirect('userr')
         else:
@@ -76,7 +76,7 @@ def register(request):
     return render(request,'index/register.html',
     {'form':form,
      'url': request.META.get('HTTP_REFERER'),
-     'url1': '/Classgate/log-ar'
+     'url1': '/log-ar'
      })
     
 
@@ -222,10 +222,10 @@ def code(request):
 
 def logout_user(request):
     logout(request)
-    if '/Classgate/user-AR' in  request.META.get('HTTP_REFERER') or '-ar' in request.META.get('HTTP_REFERER') :
+    if 'user-AR' in  request.META.get('HTTP_REFERER') or '-ar' in request.META.get('HTTP_REFERER') :
         messages.success(request,("لقد قمت بتسجيل الخروج بنجاح !!" ))
         return redirect('m-ar')
-    elif '/Classgate/user-EN' in  request.META.get('HTTP_REFERER') or 'Classgate/student' in request.META.get('HTTP_REFERER') :
+    elif 'user-EN' in  request.META.get('HTTP_REFERER') or 'Classgate/student' in request.META.get('HTTP_REFERER') :
         messages.success(request,(" You've logged out successfuly! , be right back" ))
         return redirect('main')
     else:
@@ -245,11 +245,11 @@ def edit(request):
         if user is not None  and request.user.username == username   and new_name != (''):
             owner.username = new_name
             owner.save()
-            if '/Classgate/Edit-user-AR/' in request.META.get('HTTP_REFERER') :
+            if 'Edit-user-AR/' in request.META.get('HTTP_REFERER') :
                 messages.success(request,f'تم تغيير الاسم بنجاح {request.user.username}  استمتع !')
                 return redirect('user-ar')
                 
-            elif '/Classgate/Edit-user-EN/' in request.META.get('HTTP_REFERER') :
+            elif 'Edit-user-EN/' in request.META.get('HTTP_REFERER') :
                 messages.success(request,f'Nice name, username changed successfully into {request.user.username}')
                 return redirect('userr')
     return render(request, 'index/edit.html',{
