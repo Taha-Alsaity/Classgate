@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-k#s76o+4yubmb9x1r61s#23(5vp(rg8knfzrd8^zmw$s#!0rnw
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://classgate.up.railway.app',  # Add your production URL
+]
 
 # Application definition
 
