@@ -5,17 +5,6 @@
 
 {% block body %}
 
-<<<<<<< HEAD
-<section style="min-height: 100vh; width: 100%;text-align: center;">
-    
-    <h1 style="font-size: 1.3em; border-bottom: none ; color: rgb(27, 27, 28); margin-top: 10px;" class="T" data-shadow='Classes'>Click to start the exam</h1> 
-
-    <nav class="exs" style="display: flex; flex-wrap: wrap; justify-content: space-evenly,left; margin-top: 50px; font-size: 2em; background-color: #fdfdfda9;margin: 10px; padding-bottom: 40px;">
-       {% for exam in exams %} 
-       <nav style="margin: 20px;"><div class="dropdown" >
-            <button class="btn btn-primary " type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background: none; border: none; color: black; font-size: 1em;">
-                {{exam.category}}: {{exam.name}}
-=======
 <section dir="ltr" style="  min-height: 100vh; width: 100%;text-align: center;">
     {% if '-ar' not in request.build_absolute_uri %}
     <h1 style="  font-size: 1.3em; border-bottom: none ; color: rgb(27, 27, 28); margin-top: 10px;" class="T" data-shadow='Classes'>Click to start the exam</h1> 
@@ -26,15 +15,11 @@
        <nav class="list2" style="margin: 20px;"><div class="dropdown" >
             <button class="btn btn-primary " type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background: none; border: none; color: black; font-size: 1em;">
                 {{exam.category}}:<a>{{exam.name}}</a> <p style="font-size: 0.8em; color: rgb(42, 42, 246);"> by {{ exam.teacher.name }}</p>
->>>>>>> web50/projects/2020/x/capstone
             </button>
             <ul class="dropdown-menu">
               <li><a href="{%  url 'Examss'  id=exam.id name=exam.name  %}" class="dropdown-item" type="button">Start Now</a></li>
               
             </ul></nav>
-<<<<<<< HEAD
-{% endfor %}
-=======
             {% else %}
             {% endif %}{% endfor %}
 
@@ -63,7 +48,6 @@
                     {% endif %}{% endfor %}
             {% endif %}
 
->>>>>>> web50/projects/2020/x/capstone
     </nav>
     
 </section>

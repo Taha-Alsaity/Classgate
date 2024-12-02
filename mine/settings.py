@@ -25,11 +25,7 @@ SECRET_KEY = 'django-insecure-k#s76o+4yubmb9x1r61s#23(5vp(rg8knfzrd8^zmw$s#!0rnw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = ['192.168.0.103']
-=======
 ALLOWED_HOSTS = ["*"]
->>>>>>> web50/projects/2020/x/capstone
 
 
 # Application definition
@@ -42,11 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-=======
     'defender',
     
->>>>>>> web50/projects/2020/x/capstone
 ]
 
 MIDDLEWARE = [
@@ -57,11 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-<<<<<<< HEAD
-=======
     'defender.middleware.FailedLoginMiddleware',
     
->>>>>>> web50/projects/2020/x/capstone
 ]
 
 ROOT_URLCONF = 'mine.urls'
@@ -159,12 +149,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request"
-<<<<<<< HEAD
 )
-=======
-)
-APPEND_SLASH = False
+
 
 
 # For HTTP HOSTING ONLY
->>>>>>> web50/projects/2020/x/capstone
