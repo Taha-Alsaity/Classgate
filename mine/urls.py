@@ -19,5 +19,5 @@ from django.urls import path , include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('admin/defender/', include('defender.urls')), # defender admin
-    path('Classgate/', include('minelog.urls'))
+    path('', include('minelog.urls'))
 ]
